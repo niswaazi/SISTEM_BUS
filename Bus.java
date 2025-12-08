@@ -2,23 +2,18 @@ import java.util.ArrayList;
 
 public class Bus {
 
-    // kapasitas
     private final int KAPASITAS_BIASA = 16;
     private final int KAPASITAS_PRIORITAS = 4;
     private final int KAPASITAS_BERDIRI = 20;
 
-    // daftar penumpang
     private ArrayList<Penumpang> penumpangBiasa;
     private ArrayList<Penumpang> penumpangPrioritas;
     private ArrayList<Penumpang> penumpangBerdiri;
 
-    // ongkos bus
     public static final int ONGKOS_BUS = 2000;
 
-    // pendapatan
     private int totalPendapatan;
 
-    // constructor
     public Bus() {
         penumpangBiasa = new ArrayList<>();
         penumpangPrioritas = new ArrayList<>();
@@ -26,7 +21,6 @@ public class Bus {
         totalPendapatan = 0;
     }
 
-    // getter daftar
     public ArrayList<Penumpang> getPenumpangBiasa() {
         return penumpangBiasa;
     }
@@ -39,7 +33,6 @@ public class Bus {
         return penumpangBerdiri;
     }
 
-    // getter jumlah
     public int getJumlahPenumpangBiasa() {
         return penumpangBiasa.size();
     }
@@ -52,31 +45,24 @@ public class Bus {
         return penumpangBerdiri.size();
     }
 
-    // cek prioritas
     private boolean isPrioritas(Penumpang p) {
         return p.getUmur() > 60 || p.getUmur() < 10 || p.getHamil();
     }
 
-    // method naikkan penumpang
     public boolean naikkanPenumpang(Penumpang p) {
 
-        // cek saldo
         if (p.getSaldo() < ONGKOS_BUS) {
             return false;
         }
 
-        // jika prioritas
         if (isPrioritas(p)) {
 
-            // kursi prioritas
             if (penumpangPrioritas.size() < KAPASITAS_PRIORITAS) {
                 penumpangPrioritas.add(p);
             }
-            // jika penuh, duduk di kursi biasa
             else if (penumpangBiasa.size() < KAPASITAS_BIASA) {
                 penumpangBiasa.add(p);
             }
-            // jika penuh, berdiri
             else if (penumpangBerdiri.size() < KAPASITAS_BERDIRI) {
                 penumpangBerdiri.add(p);
             }
@@ -85,14 +71,11 @@ public class Bus {
             }
         }
 
-        // jika penumpang biasa
         else {
 
-            // kursi biasa
             if (penumpangBiasa.size() < KAPASITAS_BIASA) {
                 penumpangBiasa.add(p);
             }
-            // berdiri
             else if (penumpangBerdiri.size() < KAPASITAS_BERDIRI) {
                 penumpangBerdiri.add(p);
             }
@@ -101,17 +84,14 @@ public class Bus {
             }
         }
 
-        // transaksi sukses
         p.kurangiSaldo(ONGKOS_BUS);
         totalPendapatan += ONGKOS_BUS;
 
         return true;
     }
 
-    // method turunkan penumpang
     public boolean turunkanPenumpang(int id) {
 
-        // cari di prioritas
         for (int i = 0; i < penumpangPrioritas.size(); i++) {
             if (penumpangPrioritas.get(i).getID() == id) {
                 penumpangPrioritas.remove(i);
@@ -119,7 +99,6 @@ public class Bus {
             }
         }
 
-        // cari di biasa
         for (int i = 0; i < penumpangBiasa.size(); i++) {
             if (penumpangBiasa.get(i).getID() == id) {
                 penumpangBiasa.remove(i);
@@ -127,7 +106,6 @@ public class Bus {
             }
         }
 
-        // cari di berdiri
         for (int i = 0; i < penumpangBerdiri.size(); i++) {
             if (penumpangBerdiri.get(i).getID() == id) {
                 penumpangBerdiri.remove(i);
@@ -138,7 +116,6 @@ public class Bus {
         return false;
     }
 
-    // menampilkan daftar penumpang
     public String toString() {
         String hasil = "";
 
