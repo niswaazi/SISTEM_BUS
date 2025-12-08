@@ -1,44 +1,51 @@
-
-public class penumpang {
-
-    // atribut
-    private int id_penumpang;
+public class Penumpang {
+    // atribut (private sesuai konsep encapsulation)
+    private int id;
     private int umur;
     private boolean hamil;
-    private int saldo; 
+    private int saldo;
 
-    //constructor
-    public penumpang(int id_penumpang, int umur, boolean hamil, int saldo) {
-        this.id_penumpang = id_penumpang;
+    // constructor: saldo awal = 10000
+    public Penumpang(int id, int umur, boolean hamil) {
+        this.id = id;
         this.umur = umur;
         this.hamil = hamil;
-        this.saldo = saldo;
-
+        this.saldo = 10000;
     }
 
-    //getter
-    public int getid () {
-        return id_penumpang;
+    // getter
+    public int getID() {
+        return id;
     }
 
-    public int getumur () {
+    public int getUmur() {
         return umur;
     }
 
-    public boolean gethamil () {
+    public boolean getHamil() {
         return hamil;
     }
 
-    public int getsaldo () {
+    public int getSaldo() {
         return saldo;
     }
 
-    public void tambahsaldo (int saldobaru) {
-        if (saldobaru > 0) {
-            this.saldo = this.saldo + saldobaru;
-        } else {
-            System.out.println("Saldo tidak valid");
+    // menambah saldo
+    public void tambahSaldo(int saldoBaru) {
+        if (saldoBaru > 0) {
+            this.saldo += saldoBaru;
         }
     }
 
+    // mengurangi saldo
+    public void kurangiSaldo(int ongkos) {
+        if (ongkos > 0 && saldo >= ongkos) {
+            saldo -= ongkos;
+        }
+    }
+
+    // untuk mencetak nama penumpang (opsional)
+    public String toString() {
+        return "ID: " + id + ", Umur: " + umur + ", Hamil: " + hamil + ", Saldo: " + saldo;
+    }
 }
