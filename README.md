@@ -4,7 +4,7 @@ KELAS : PEMROGRAMAN BERORIENTASI OBJEK C
 # SISTEM_BUS
 **Projek sistem pengelolaan Trans Koetaradja**
 
-Pada sistem ini saya mencoba untuk memahami sistem nya dengan sangat semangat
+Pada sistem ini saya mencoba untuk memahami sistem nya dengan sangat semangat, namun karena kondisi untuk projek kali ini sangat tidak sempurna pak saya mohon pengertian dari bapak, terima kasih banyak bapak..
 
 Program ini untuk seperti contoh simulasi proses naik dan turunnya penumpang di Bus Trans Koetaradja. Bus memiliki kursi biasa, kursi prioritas, dan tempat berdiri. Penumpang membayar ongkos 2000 saat naik, dan saldo mereka berkurang otomatis.
 
