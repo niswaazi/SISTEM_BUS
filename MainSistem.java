@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TestBus {
+public class MainSistem {
 
     public static void main(String[] args) {
 
